@@ -1,0 +1,64 @@
+{
+  "gene_symbol": "BTK",
+  "transcript_id": "ENST00000MOCK001",
+  "chromosome": "chrX",
+  "strand": "+",
+  "total_length": 5000,
+  "cds_start": 300,
+  "cds_end": 3900,
+  "cds_length": 1650,
+  "protein_length": 549,
+  "exons": [
+    {
+      "exon_number": 1,
+      "genomic_start": 100,
+      "genomic_end": 450,
+      "cds_start": 300,
+      "cds_end": 450,
+      "cds_offset": 0,
+      "phase": 0
+    },
+    {
+      "exon_number": 2,
+      "genomic_start": 1000,
+      "genomic_end": 1500,
+      "cds_start": 1000,
+      "cds_end": 1500,
+      "cds_offset": 150,
+      "phase": 0
+    },
+    {
+      "exon_number": 3,
+      "genomic_start": 2200,
+      "genomic_end": 2800,
+      "cds_start": 2200,
+      "cds_end": 2800,
+      "cds_offset": 650,
+      "phase": 2
+    },
+    {
+      "exon_number": 4,
+      "genomic_start": 3500,
+      "genomic_end": 3999,
+      "cds_start": 3500,
+      "cds_end": 3900,
+      "cds_offset": 1250,
+      "phase": 2
+    }
+  ],
+  "introns": [
+    {
+      "genomic_start": 450,
+      "genomic_end": 1000
+    },
+    {
+      "genomic_start": 1500,
+      "genomic_end": 2200
+    },
+    {
+      "genomic_start": 2800,
+      "genomic_end": 3500
+    }
+  ],
+  "is_iei_gene": true
+}

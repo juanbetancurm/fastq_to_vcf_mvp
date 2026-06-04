@@ -1,0 +1,64 @@
+{
+  "description": "Variants planted in mock FASTQ. Used by validate_pipeline management command (Step 6).",
+  "chromosome": "chrX",
+  "parameters": {
+    "read_length": 150,
+    "fragment_length_mean": 350,
+    "fragment_length_std": 50,
+    "num_fragments": 1000,
+    "reference_length": 5000,
+    "random_seed": 42
+  },
+  "variants": [
+    {
+      "position": 350,
+      "type": "SNV",
+      "ref_allele": "C",
+      "alt_allele": "G",
+      "zygosity": "het",
+      "expected_genotype": "0/1",
+      "expected_consequence": "missense_variant",
+      "note": "Exon 1 heterozygous missense"
+    },
+    {
+      "position": 800,
+      "type": "SNV",
+      "ref_allele": "A",
+      "alt_allele": "T",
+      "zygosity": "hom",
+      "expected_genotype": "1/1",
+      "expected_consequence": "intron_variant",
+      "note": "Intron 1 homozygous SNV"
+    },
+    {
+      "position": 1350,
+      "type": "SNV",
+      "ref_allele": "T",
+      "alt_allele": "C",
+      "zygosity": "hom",
+      "expected_genotype": "1/1",
+      "expected_consequence": "synonymous_variant",
+      "note": "Exon 2 homozygous synonymous"
+    },
+    {
+      "position": 2650,
+      "type": "SNV",
+      "ref_allele": "T",
+      "alt_allele": "A",
+      "zygosity": "het",
+      "expected_genotype": "0/1",
+      "expected_consequence": "missense_variant",
+      "note": "Exon 3 heterozygous missense"
+    },
+    {
+      "position": 3700,
+      "type": "DEL",
+      "ref_allele": "T",
+      "alt_allele": "",
+      "zygosity": "het",
+      "expected_genotype": "0/1",
+      "expected_consequence": "frameshift_variant",
+      "note": "Exon 4 heterozygous 1-bp deletion (frameshift)"
+    }
+  ]
+}
