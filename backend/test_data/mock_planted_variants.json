@@ -37,8 +37,8 @@
       "alt_allele": "C",
       "zygosity": "hom",
       "expected_genotype": "1/1",
-      "expected_consequence": "synonymous_variant",
-      "note": "Exon 2 homozygous synonymous"
+      "expected_consequence": "missense_variant",
+      "note": "Exon 2 homozygous missense (TTG/Leu → TCG/Ser)"
     },
     {
       "position": 2650,
