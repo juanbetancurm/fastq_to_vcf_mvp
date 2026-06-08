@@ -5,7 +5,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # API routes will be added in Step 7
+    path("api/", include("apps.patients.urls")),
+    path("api/", include("apps.sequencing.urls")),
+    path("api/", include("apps.variants.urls")),
 ]
 
 if settings.DEBUG:

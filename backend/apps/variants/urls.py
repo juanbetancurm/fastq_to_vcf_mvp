@@ -1,3 +1,7 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
+from .views import VariantViewSet
 
-urlpatterns = []
+router = DefaultRouter()
+router.register("variants", VariantViewSet, basename="variant")
+
+urlpatterns = router.urls
