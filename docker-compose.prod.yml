@@ -1,0 +1,74 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: iei-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: iei-redis
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: iei-backend
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - media:/app/media
+      - pipeline_work:/app/pipeline_work
+    expose:
+      - "8000"
+    networks:
+      - default
+      - web
+
+  celery:
+    build: ./backend
+    container_name: iei-celery
+    restart: unless-stopped
+    env_file: .env
+    command: ["celery", "-A", "config", "worker", "--loglevel=info", "--concurrency=1"]
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - media:/app/media
+      - pipeline_work:/app/pipeline_work
+
+  frontend:
+    build: ./frontend
+    container_name: iei-frontend
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      - default
+      - web
+
+volumes:
+  pgdata:
+  media:
+  pipeline_work:
+
+networks:
+  web:
+    external: true
